@@ -1,0 +1,46 @@
+$def with (todos)
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Golf score keeper</title>
+        <!--<script script type="text/javascript" src=/static/jquery/dist/jquery.js></script>-->
+        <script script type="text/javascript" src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+    </head>
+<body>
+    <form action="upload.html" method="get">
+        <div>
+            <label for="1">Hole 1</label>
+            <input type="number" min="1" value="4" name="1" size="2" step="1"/>
+        </div>
+        <div>
+            <input type="email" placeholder="Enter your email address" size="40"/>
+        </div>
+
+        <div>
+            <input type="submit" value="Upload Score" />
+        </div>
+
+        <div>
+            <input type="text" id="lat_field" name="latitude" />
+            <input type="text" id="long_field" name="longitude" />
+        </div>
+          <script script type="text/javascript">
+                navigator.geolocation.getCurrentPosition(
+              function(pos) {
+               jQuery("#lat_field" ).val(pos.coords.latitude);
+               jQuery("#long_field").val(pos.coords.longitude);
+                console.log(pos.coords.latitude);
+              }
+            );
+          </script>
+    </form>
+<ul>
+$for todo in todos:
+    <li id="t$todo.id">$todo.title</li>
+</ul>
+<form method="post" action="add">
+    <p><input type="text" name="title" /> <input type="submit" value="Add" /></p>
+</form>
+</body>
+</html>
+
