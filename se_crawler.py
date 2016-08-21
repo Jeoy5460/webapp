@@ -40,5 +40,6 @@ ActionChains(drv).move_to_element(li_course).perform()
 WebDriverWait(drv, delay).until(EC.presence_of_element_located((By.LINK_TEXT, "我的课程")))
 my_course = drv.find_element(By.LINK_TEXT,"我的课程")
 ActionChains(drv).move_to_element(my_course).click().perform()
+WebDriverWait(drv, delay).until(EC.presence_of_element_located((By.CLASS_NAME, "ets-ui-unit-bd-content")))
     
-#print drv.page_source
+print drv.page_source
