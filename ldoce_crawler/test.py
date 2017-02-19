@@ -33,7 +33,7 @@ html = r.read()
 #print html
 #print br.response().read()
 soup = BeautifulSoup(html, "html5lib")
-innerDiv = soup.find("div", id=page_content)
+innerDiv = soup.find(attrs={'class': "page_content"})
 links = innerDiv.find_all("a", href=re.compile("^http"))
 for link in links:
     print link
