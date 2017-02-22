@@ -65,7 +65,7 @@ def get_vocabulary():
             
             dictlinks=soup.find_all(attrs={'class':"dictlink"})
             for dictlink in dictlinks:
-		freq_hd = dictlink.find(attrs={'class':"frequen Head"})
+		freq_hd = dictlink.find(attrs={'class':"frequent Head"})
 
                 if freq_hd:
 		    word_level = freq_hd.find(attrs={'class': "tooltip LEVEL"})
@@ -85,7 +85,7 @@ def get_vocabulary():
 			if poses:
 			    for pos in poses:
 				word_property.append(pos.get_text())
-			#with open("core_vocabulary.lm", 'a') as fd_cv:        
-			print ' '.join(p.encode('utf-8').strip() for p in word_property) 
+			with open("core_vocabulary.lm", 'a') as fd_cv:        
+                            print>>fd_cv, ' '.join(p.encode('utf-8').strip() for p in word_property) 
 if __name__ == '__main__':
     get_vocabulary()
