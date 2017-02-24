@@ -103,7 +103,7 @@ def get_vocabulary(filename):
                             print>>fd_cv, ' '.join(p.encode('utf-8').strip() for p in word_property) 
 
 if __name__ == '__main__':
-    alphabet=['d']
+    alphabet=['r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
     for alpha in alphabet:
 	get_urls(alpha)
 	url_filtering(alpha+'.url')
